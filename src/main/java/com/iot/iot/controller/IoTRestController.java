@@ -33,7 +33,7 @@ public class IoTRestController {
     public String sendMessage(@RequestParam("imei") String imei, @RequestParam("momsn") String momsn, @RequestParam("transmit_time") String transmit_time, @RequestParam("iridium_latitude") String iridium_latitude, @RequestParam("iridium_longitude") String iridium_longitude, @RequestParam("iridium_cep") String iridium_cep, @RequestParam("data") String data) {
             String message = String.format("{\"%s\":\"%s\",\"%s\":%s,\"%s\":%s,\"%s\":%s,\"%s\":%s,\"%s\":%s,\"%s\":%s}", "imei", imei,"momsn", momsn,"transmit_time", transmit_time,"iridium_latitude", iridium_latitude,"iridium_longitude", iridium_longitude,"iridium_cep", iridium_cep,"data", data);
             app.sendMessage(imei,momsn,transmit_time,iridium_latitude,iridium_longitude,iridium_cep,data);
-        return "Message sent.";
+        return "200";
     }
 
 

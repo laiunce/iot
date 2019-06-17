@@ -64,13 +64,15 @@ public class TrackingDaoImpl implements TrackingDao {
     }
 
     private String hexDecoder(String messageEncode) {
-        String decoded = "";
+        String decoded = "Empty message";
         try {
             byte[] bytes = Hex.decodeHex(messageEncode.toCharArray());
             decoded = new String(bytes, "UTF-8");
         } catch (DecoderException e) {
+            decoded = "Error Decoding";
             e.printStackTrace();
         } catch (UnsupportedEncodingException e) {
+            decoded = "Error Decoding";
             e.printStackTrace();
         }
         return decoded;

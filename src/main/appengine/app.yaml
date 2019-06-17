@@ -3,6 +3,11 @@ env: flex
 api_version: 1
 module: tracking
 
+automatic_scaling:
+  cool_down_period: 120s
+  min_num_instances: 1
+  max_num_instances: 2
+
 handlers:
   - url: /.*
     script: this field is required, but ignored
