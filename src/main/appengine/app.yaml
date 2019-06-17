@@ -1,6 +1,6 @@
 runtime: java
 env: flex
-module: tracking
+service: track
 
 handlers:
   - url: /.*
