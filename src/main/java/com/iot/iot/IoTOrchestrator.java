@@ -23,9 +23,9 @@ public class IoTOrchestrator {
     @Autowired
     private DataBaseService dataBaseService;
 
-    public void sendMessage(String message) {
-        log.info("Message {}",message);
-        dataBaseService.addLogAction(message);
+    public void sendMessage(String imei, String momsn, String transmit_time, String iridium_latitude, String iridium_longitude, String iridium_cep, String data) {
+        log.info("Message {},{},{},{},{},{},{}",imei,momsn,transmit_time,iridium_latitude,iridium_longitude,iridium_cep,data);
+        dataBaseService.addLogAction(imei,momsn,transmit_time,iridium_latitude,iridium_longitude,iridium_cep,data);
     }
 
 

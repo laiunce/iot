@@ -10,13 +10,31 @@
 
 <form action="/process-message" method="post">
 
-    Send a message to the dv360 Actor:
+    Send a message to the tracking system:
     <br/>
     <br/>
-    geo_name:<br/>
-    <input type="text" name="texto" id="texto" value=probando><br>
+    imei:<br/>
+    <input type="text" name="imei" id="imei" value=300234010753370><br>
     <br/>
-    <input type="submit" value="Post it!"/>
+    momsn:<br/>
+    <input type="text" name="momsn" id="momsn" value=12345><br>
+    <br/>
+    transmit_time:<br/>
+    <input type="text" name="transmit_time" id="transmit_time" value=12-10-10 10:41:50><br>
+    <br/>
+    iridium_latitude:<br/>
+    <input type="text" name="iridium_latitude" id="iridium_latitude" value=52.3867><br>
+    <br/>
+    iridium_longitude:<br/>
+    <input type="text" name="iridium_longitude" id="iridium_longitude" value=36.5827><br>
+    <br/>
+    iridium_cep:<br/>
+    <input type="text" name="iridium_cep" id="iridium_cep" value=8><br>
+    <br/>
+    data:<br/>
+    <input type="text" name="data" id="data" value=48656c6c6f20576f726c6420526f636b424c4f434b><br>
+    <br/>
+    <input type="submit" value="Send!"/>
     <br/>
 </form>
 </body>

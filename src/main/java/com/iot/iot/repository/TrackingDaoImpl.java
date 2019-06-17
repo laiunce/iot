@@ -36,11 +36,11 @@ public class TrackingDaoImpl implements TrackingDao {
 
 
     @Override
-    public void addLogAction(String message) {
+    public void addLogAction(String imei, String momsn, String transmit_time, String iridium_latitude, String iridium_longitude, String iridium_cep, String data) {
 
         try (Connection conn = dataSource.getConnection()) {
 
-            String jsonString = getJsonString(message);
+            String jsonString = getJsonString(imei,momsn,transmit_time,iridium_latitude,iridium_longitude,iridium_cep,data);
 
             String sqlInsertIntoActionLog = "INSERT " +
                     "INTO action_log " +
@@ -57,10 +57,16 @@ public class TrackingDaoImpl implements TrackingDao {
         }
     }
 
-    private String getJsonString(String message) {
+    private String getJsonString(String imei, String momsn, String transmit_time, String iridium_latitude, String iridium_longitude, String iridium_cep, String data) {
 
         Map<String, Object> jsonMap = new LinkedHashMap<>();
-        jsonMap.put("message", message);
+        jsonMap.put("imei", imei);
+        jsonMap.put("momsn", momsn);
+        jsonMap.put("transmit_time", transmit_time);
+        jsonMap.put("iridium_latitude", iridium_latitude);
+        jsonMap.put("iridium_longitude", iridium_longitude);
+        jsonMap.put("iridium_cep", iridium_cep);
+        jsonMap.put("data", data);
         try {
             return objectMapper.writeValueAsString(jsonMap);
         } catch (JsonProcessingException ignore) {

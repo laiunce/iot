@@ -8,5 +8,5 @@ import java.util.Set;
  */
 public interface TrackingDao {
 
-    void addLogAction(String message);
+    void addLogAction(String imei, String momsn, String transmit_time, String iridium_latitude, String iridium_longitude, String iridium_cep, String data);
 }
