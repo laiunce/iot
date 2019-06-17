@@ -1,11 +1,7 @@
 runtime: java
 env: flex
-api_version: 2
-module: tracking
-
-automatic_scaling:
-  min_num_instances: 1
-  max_num_instances: 2
+api_version: 1
+module: tracker
 
 handlers:
   - url: /.*
