@@ -1,0 +1,28 @@
+spring.profiles.active: dev
+
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gcp:
+      trace:
+        enabled: true
+      sql:
+        enabled: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    testWhileIdle: true
+    timeBetweenEvictionRunsMillis: 120000
+    validationQuery: SELECT 1
+    max-active: 10
+  jpa:
+    open-in-view: false
+  resources:
+    chain.cache: false
+
+management:
+  endpoint:
+    health:
+      enabled: true
+      show-details: "ALWAYS"
