@@ -5,3 +5,10 @@ module: tracker
 handlers:
   - url: /.*
     script: this field is required, but ignored    
+
+health_check:
+  enable_health_check: True
+  check_interval_sec: 5
+  timeout_sec: 4
+  unhealthy_threshold: 2
+  healthy_threshold: 2    
