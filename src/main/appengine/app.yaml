@@ -1,5 +1,7 @@
 runtime: java
 env: flex
+api_version: 1
+module: tracking
 
 handlers:
   - url: /.*
