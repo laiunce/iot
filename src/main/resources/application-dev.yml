@@ -6,7 +6,7 @@ spring:
     gcp:
       sql:
         database-name: deviot
-        instance-connection-name: dloaders-227115:us-central1:deviot
+        instance-connection-name: loaders-227115:us-central1:deviot
   datasource:
     username: root
     password: root
