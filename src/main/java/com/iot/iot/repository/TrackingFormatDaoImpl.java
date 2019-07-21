@@ -47,10 +47,10 @@ public class TrackingFormatDaoImpl implements TrackingFormatDao {
             String db_transmit_time = transmit_time;
             float db_iridium_latitude = Float.valueOf(iridium_latitude.trim()).floatValue();
             float db_iridium_longitude = Float.valueOf(iridium_longitude.trim()).floatValue();
-            int db_iridium_cep = Integer.parseInt(iridium_cep);
+            float db_iridium_cep = Float.valueOf(iridium_cep.trim()).floatValue();
             float db_temperature = 0;
             float db_preasure = 0;
-            //6173646173642061646173643233323120617364617364
+
             try {
                 String[] splitArray = db_data.split("\\s+");
                 db_temperature = Float.valueOf(splitArray[0].trim()).floatValue();
@@ -73,7 +73,7 @@ public class TrackingFormatDaoImpl implements TrackingFormatDao {
             preparedStmtInsertIntoactionLog.setString(3, db_transmit_time);
             preparedStmtInsertIntoactionLog.setFloat(4, db_iridium_latitude);
             preparedStmtInsertIntoactionLog.setFloat(5, db_iridium_longitude);
-            preparedStmtInsertIntoactionLog.setInt(6, db_iridium_cep);
+            preparedStmtInsertIntoactionLog.setFloat(6, db_iridium_cep);
             preparedStmtInsertIntoactionLog.setString(7, db_data);
             preparedStmtInsertIntoactionLog.setFloat(8, db_temperature);
             preparedStmtInsertIntoactionLog.setFloat(9, db_preasure);
