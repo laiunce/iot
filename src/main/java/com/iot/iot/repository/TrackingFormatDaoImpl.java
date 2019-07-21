@@ -50,13 +50,13 @@ public class TrackingFormatDaoImpl implements TrackingFormatDao {
             int db_iridium_cep = Integer.parseInt(iridium_cep);
             float db_temperature = 0;
             float db_preasure = 0;
-
+            //6173646173642061646173643233323120617364617364
             try {
                 String[] splitArray = db_data.split("\\s+");
                 db_temperature = Float.valueOf(splitArray[0].trim()).floatValue();
                 db_preasure = Float.valueOf(splitArray[1].trim()).floatValue();
                 format = "ok";
-            } catch (PatternSyntaxException ex) {
+            } catch (Exception ex) {
                 format = "fail";
             }
 
