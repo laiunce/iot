@@ -2,6 +2,7 @@ package com.iot.iot.service;
 
 
 import com.iot.iot.repository.TrackingDaoImpl;
+import com.iot.iot.repository.TrackingFormatDaoImpl;
 
 import java.util.List;
 import java.util.Set;
@@ -20,8 +21,12 @@ public class DataBaseService {
     @Autowired
     TrackingDaoImpl trackingDaoImpl;
 
+    @Autowired
+    TrackingFormatDaoImpl trackingFormatDaoImpl;
+
     public void addLogAction(String imei, String momsn, String transmit_time, String iridium_latitude, String iridium_longitude, String iridium_cep, String data) {
         trackingDaoImpl.addLogAction(imei,momsn,transmit_time,iridium_latitude,iridium_longitude,iridium_cep,data);
+        trackingFormatDaoImpl.addLogAction(imei,momsn,transmit_time,iridium_latitude,iridium_longitude,iridium_cep,data);
     }
 
 
