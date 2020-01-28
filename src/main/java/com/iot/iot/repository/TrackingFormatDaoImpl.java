@@ -51,10 +51,14 @@ public class TrackingFormatDaoImpl implements TrackingFormatDao {
             float db_temperature = 0;
             float db_preasure = 0;
 
+
+
+
+
             try {
-                String[] splitArray = db_data.split("\\s+");
-                db_temperature = Float.valueOf(splitArray[0].trim()).floatValue();
-                db_preasure = Float.valueOf(splitArray[1].trim()).floatValue();
+                String[] splitArray = db_data.split(";");
+                db_temperature = Float.valueOf(splitArray[1].split(":")[1].trim()).floatValue();
+                db_preasure = Float.valueOf(splitArray[2].split(":")[1].trim()).floatValue();
                 format = "ok";
             } catch (Exception ex) {
                 format = "fail";
