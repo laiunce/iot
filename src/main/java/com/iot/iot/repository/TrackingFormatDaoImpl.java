@@ -48,17 +48,18 @@ public class TrackingFormatDaoImpl implements TrackingFormatDao {
             float db_iridium_latitude = Float.valueOf(iridium_latitude.trim()).floatValue();
             float db_iridium_longitude = Float.valueOf(iridium_longitude.trim()).floatValue();
             float db_iridium_cep = Float.valueOf(iridium_cep.trim()).floatValue();
-            float db_temperature = 0;
-            float db_preasure = 0;
-
+            float db_temperature1 = 0;
+            float db_temperature2 = 0;
+            float db_temperature3 = 0;
 
 
 
 
             try {
                 String[] splitArray = db_data.split(";");
-                db_temperature = Float.valueOf(splitArray[1].split(":")[1].trim()).floatValue();
-                db_preasure = Float.valueOf(splitArray[2].split(":")[1].trim()).floatValue();
+                db_temperature1 = Float.valueOf(splitArray[1].split(":")[1].trim()).floatValue();
+                db_temperature2 = Float.valueOf(splitArray[2].split(":")[1].trim()).floatValue();
+                db_temperature3 = Float.valueOf(splitArray[3].split(":")[1].trim()).floatValue();
                 format = "ok";
             } catch (Exception ex) {
                 format = "fail";
@@ -66,10 +67,10 @@ public class TrackingFormatDaoImpl implements TrackingFormatDao {
 
 
             String sqlInsertIntoActionLog = "INSERT " +
-                    "INTO action_format_log " +
-                    "(imei,momsn,transmit_time,iridium_latitude,iridium_longitude,iridium_cep,data,preasure,temperature,format) " +
+                    "INTO action_format_temperature_log " +
+                    "(imei,momsn,transmit_time,iridium_latitude,iridium_longitude,iridium_cep,data,temperature1,temperature2,temperature3,format) " +
                     "VALUES " +
-                    "(?,?,?,?,?,?,?,?,?,?)";
+                    "(?,?,?,?,?,?,?,?,?,?,?)";
 
             PreparedStatement preparedStmtInsertIntoactionLog = conn.prepareStatement(sqlInsertIntoActionLog);
             preparedStmtInsertIntoactionLog.setString(1, imei);
@@ -79,9 +80,10 @@ public class TrackingFormatDaoImpl implements TrackingFormatDao {
             preparedStmtInsertIntoactionLog.setFloat(5, db_iridium_longitude);
             preparedStmtInsertIntoactionLog.setFloat(6, db_iridium_cep);
             preparedStmtInsertIntoactionLog.setString(7, db_data);
-            preparedStmtInsertIntoactionLog.setFloat(8, db_temperature);
-            preparedStmtInsertIntoactionLog.setFloat(9, db_preasure);
-            preparedStmtInsertIntoactionLog.setString(10, format);
+            preparedStmtInsertIntoactionLog.setFloat(8, db_temperature1);
+            preparedStmtInsertIntoactionLog.setFloat(9, db_temperature2);
+            preparedStmtInsertIntoactionLog.setFloat(10, db_temperature3);
+            preparedStmtInsertIntoactionLog.setString(11, format);
 
             preparedStmtInsertIntoactionLog.executeUpdate();
         } catch (SQLException e) {
